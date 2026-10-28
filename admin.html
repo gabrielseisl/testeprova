@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+        function verifica() {
+            let user = "admin"
+            let logado = localStorage.getItem("logado")
+
+            if (user != logado) {
+                alert("você não tem permissão")
+                window.location.href = "login.html"
+            }
+        }
+
+        verifica()
+    </script>
+</body>
+</html>

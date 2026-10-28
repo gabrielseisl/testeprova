@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>login</title>
+    <script src = "https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
+</head>
+<body>
+    
+
+    <h1>Login</h1>
+    <form action="">
+
+
+     <input type="text" id="user" placeholder="usuário"><br></br>
+        <input type="password" id="senha" placeholder="senha" required><br></br>
+        <button  type = "submit" onclick="logar()">Entrar</button>
+    </form>
+
+        <script>
+            function logar() {
+
+                let senha = document.getElementById("senha").value.trim();
+                let user = document.getElementById("user").value.trim();
+
+
+                senhaHash = CryptoJS.SHA512(senha).toString()
+                senhaCadastrada = localStorage.getItem(senha)
+
+
+                if (senhaHash == null || senhaCadastrada !== senhaHash) {
+                    alert("Sua senha ou usuario esta incorreto")
+                    return
+                }
+
+
+                localStorage.setItem("logado",user)
+
+                if (senhaCadastrada == senhaHash) {
+                    window.location.href = "admin.html"
+                }
+            }
+    </script>
+</body>
+</html>
